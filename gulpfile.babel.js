@@ -1,6 +1,6 @@
 import gulp from 'gulp';
 import babel from 'gulp-babel';
-import sass from 'gulp-sass';
+// import sass from 'gulp-sass';
 import cleanCSS from 'gulp-clean-css';
 import cleanDir from 'gulp-clean';
 import rename from 'gulp-rename';
@@ -11,6 +11,7 @@ const DIST = 'dist';
 const TEST = 'test';
 const PKG_PATH = './packages';
 const NODE_MODULES = 'node_modules';
+const sass = require('gulp-sass')(require('sass'));
 
 const JS_PKGS = [
   'react-bootstrap-table2',
@@ -45,7 +46,9 @@ function scripts() {
       `./packages/+(${JS_PKGS})/**/*.js`,
       `!packages/+(${JS_PKGS})/${JS_SKIPS}/**/*.js`
     ])
-    .pipe(babel())
+    .pipe(babel({
+      presets: ['@babel/preset-react']
+    }))
     .pipe(rename((path) => {
       if (path.dirname.indexOf('src') > -1) {
         path.dirname = path.dirname.replace('src', `${LIB}/src`);
@@ -76,12 +79,12 @@ function styles() {
 
 function umd(done) {
   gulp.parallel(
-    () => gulp.src('./webpack/next.umd.babel.js').pipe(shell(['webpack --config <%= file.path %>'])),
-    () => gulp.src('./webpack/editor.umd.babel.js').pipe(shell(['webpack --config <%= file.path %>'])),
-    () => gulp.src('./webpack/filter.umd.babel.js').pipe(shell(['webpack --config <%= file.path %>'])),
-    () => gulp.src('./webpack/overlay.umd.babel.js').pipe(shell(['webpack --config <%= file.path %>'])),
-    () => gulp.src('./webpack/paginator.umd.babel.js').pipe(shell(['webpack --config <%= file.path %>'])),
-    () => gulp.src('./webpack/toolkit.umd.babel.js').pipe(shell(['webpack --config <%= file.path %>']))
+    (done) => gulp.task('./webpack/next.umd.babel.js', shell.task(['webpack --config <%= file.path %>']), done()),
+    (done) => gulp.task('./webpack/editor.umd.babel.js', shell.task(['webpack --config <%= file.path %>']), done()),
+    (done) => gulp.task('./webpack/filter.umd.babel.js', shell.task(['webpack --config <%= file.path %>']), done()),
+    (done) => gulp.task('./webpack/overlay.umd.babel.js', shell.task(['webpack --config <%= file.path %>']), done()),
+    (done) => gulp.task('./webpack/paginator.umd.babel.js', shell.task(['webpack --config <%= file.path %>']), done()),
+    (done) => gulp.task('./webpack/toolkit.umd.babel.js', shell.task(['webpack --config <%= file.path %>']), done())
   )();
   done();
 }
@@ -90,5 +93,5 @@ const buildJS = gulp.parallel(umd, scripts);
 const buildCSS = styles;
 const build = gulp.series(clean, gulp.parallel(buildJS, buildCSS));
 
-gulp.task('prod', build);
-gulp.task('default', build);
+gulp.task('prod', build, function(done){done();});
+gulp.task('default', build, function(done){done();});
