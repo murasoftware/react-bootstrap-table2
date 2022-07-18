@@ -1,8 +1,9 @@
 {
   "name": "@murasoftware/react-bootstrap-table2-toolkit",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "The toolkit for react-bootstrap-table2",
   "main": "./lib/index.js",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/react-bootstrap-table/react-bootstrap-table2.git"

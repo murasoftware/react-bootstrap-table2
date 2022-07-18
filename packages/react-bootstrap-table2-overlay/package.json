@@ -1,8 +1,9 @@
 {
   "name": "@murasoftware/react-bootstrap-table2-overlay",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "it's a loading overlay addons for react-bootstrap-table2",
   "main": "./lib/index.js",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/react-bootstrap-table/react-bootstrap-table2.git"

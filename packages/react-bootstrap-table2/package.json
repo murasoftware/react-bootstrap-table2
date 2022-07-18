@@ -1,8 +1,9 @@
 {
   "name": "@murasoftware/react-bootstrap-table-next",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "description": "Next generation of react-bootstrap-table",
   "main": "./lib/index.js",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/react-bootstrap-table/react-bootstrap-table2.git"

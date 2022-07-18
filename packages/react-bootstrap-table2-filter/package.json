@@ -1,8 +1,9 @@
 {
   "name": "@murasoftware/react-bootstrap-table2-filter",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "it's a column filter addon for react-bootstrap-table2",
   "main": "./lib/index.js",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/react-bootstrap-table/react-bootstrap-table2.git"
