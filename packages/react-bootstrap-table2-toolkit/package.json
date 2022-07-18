@@ -1,5 +1,5 @@
 {
-  "name": "react-bootstrap-table2-toolkit",
+  "name": "@murasoftware/react-bootstrap-table2-toolkit",
   "version": "2.2.0",
   "description": "The toolkit for react-bootstrap-table2",
   "main": "./lib/index.js",
