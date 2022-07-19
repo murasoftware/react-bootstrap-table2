@@ -1,9 +1,8 @@
 {
   "name": "@murasoftware/react-bootstrap-table2-paginator",
-  "version": "2.2.1",
+  "version": "2.2.3",
   "description": "it's the pagination addon for react-bootstrap-table2",
   "main": "./lib/index.js",
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/react-bootstrap-table/react-bootstrap-table2.git"
